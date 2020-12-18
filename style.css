@@ -1,0 +1,197 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --main-radius: 5px;
+  --main-padding: 5px;
+}
+
+label {
+  margin: 6px;
+  font-size: 20px;
+}
+body {
+  color: rgba(19, 65, 87, 0.651);
+
+  font-family: "Della Respira", serif;
+}
+h1 {
+  text-align: center;
+  font-size: 40px;
+  margin-top:25px;
+  margin-bottom:25px;
+}
+
+h2 {
+  margin-top: 10px;
+  font-size: 18px;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  margin-top: 12px;
+}
+
+#rbtImage {
+  width: 128px;
+  height: 128px;
+  margin-top: 10px;
+  align-self: center;
+}
+
+#userImage {
+  width: 128px;
+  height: 128px;
+  align-self: center;
+}
+
+.mainContainer {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.leftContainer {
+  display: flex;
+  flex-direction: column;
+
+  padding: 10px;
+
+  border: 1px solid rgb(50, 50, 63);
+  border-radius: 6px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.middleContainer {
+  min-width: 400px;
+  max-width: 500px;
+  border-top: 1px solid rgb(13, 12, 117);
+  border-bottom: 1px solid rgb(39, 102, 153);
+  padding: 10px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr 1fr 1fr 0.4fr;
+  grid-template-areas:
+    "a1 a2 a3"
+    "playerScore displayDraw computerScore"
+    "log log log"
+    "reButton reButton reButton";
+
+  grid-gap: 0.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+#pScoreHeadeer {
+  grid-area: a1;
+  text-align: left;
+}
+#tieHeader {
+  grid-area: a2;
+  text-align: center;
+}
+
+#comScoreHeader {
+  grid-area: a3;
+  text-align: right;
+}
+
+#lbl_playerScore {
+  justify-self: left;
+  grid-area: playerScore;
+  font-size: 40px;
+}
+
+#lbl_computerScore {
+  justify-self: right;
+  grid-area: computerScore;
+  font-size: 40px;
+}
+
+#lbl_draw {
+  justify-self: center;
+  grid-area: displayDraw;
+  font-size: 40px;
+}
+
+#log {
+  justify-self: center;
+  grid-area: log;
+}
+
+#restartBtn {
+  grid-area: reButton;
+  width: 25%;
+  justify-self: center;
+  background-color: rgb(72, 108, 145);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+#restartBtn:hover {
+  background-color: rgba(33, 73, 192, 0.76);
+}
+
+.rightContainer {
+  display: flex;
+  flex-direction: column;
+
+  padding: 10px;
+
+  border: 1px solid rgb(50, 50, 63);
+  border-radius: 6px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.btn {
+  background-color: rgb(72, 108, 145);
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 2px;
+  margin-top: 8px;
+}
+
+.btn:hover {
+  background-color: rgba(33, 73, 192, 0.76);
+  /* transform: translateY(2px);*/
+}
+
+.btn:active {
+  transform: translateY(4px);
+}
+
+.btnC {
+  background-color: rgba(199, 60, 18, 0.733);
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 2px;
+  display: none;
+  margin-top: 10px;
+}
