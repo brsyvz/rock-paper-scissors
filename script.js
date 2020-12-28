@@ -1,23 +1,23 @@
-let rpsArrContainer = ["rock", "paper", "scissors"];
+let rpsString = ["rock", "paper", "scissors"];
 let playerScore = 0;
 let computerScore = 0;
 let drawCounter = 0;
 let playerSelection = "";
 
-let gameLog = document.getElementById("log");
+let showGameLog = document.getElementById("gameLog");
 
-let rockBtn = document.getElementById("rockBtn");
-let paperBtn = document.getElementById("paperBtn");
-let scissorsBtn = document.getElementById("scissorsBtn");
+let playerRockBtn = document.getElementById("playerRockBtn");
+let playerPaperBtn = document.getElementById("playerPaperBtn");
+let playerScissorsBtn = document.getElementById("playerScissorsBtn");
 
-let rockBtnC = document.getElementById("rockBtnC");
-let paperBtnC = document.getElementById("paperBtnC");
-let scissorsBtnC = document.getElementById("scissorsBtnC");
+let comRockBtn = document.getElementById("comRockBtn");
+let comPaperBtn = document.getElementById("comPaperBtn");
+let comScissorsBtn = document.getElementById("comScissorsBtn");
 
 
-let lbl_playerScore = document.getElementById("lbl_playerScore");
-let lbl_computerScore = document.getElementById("lbl_computerScore");
-let lbl_draw = document.getElementById("lbl_draw");
+let showPlayerScore = document.getElementById("showPlayerScore");
+let showComputerScore = document.getElementById("showComputerScore");
+let showDrawCount = document.getElementById("showDrawCount");
 
 
 let lbl_pWin = document.getElementById("lbl_pWin");
@@ -25,14 +25,15 @@ let lbl_pLose = document.getElementById("lbl_pLose");
 let lbl_cWin = document.getElementById("lbl_cWin");
 let lbl_cLost = document.getElementById("lbl_cLost");
 
-rockBtn.addEventListener('click',rockBtnClicked);
-paperBtn.addEventListener('click',paperBtnClicked);
-scissorsBtn.addEventListener('click',scissorsBtnClicked);
+playerRockBtn.addEventListener('click',rockBtnClicked);
+playerPaperBtn.addEventListener('click',paperBtnClicked);
+playerScissorsBtn.addEventListener('click',scissorsBtnClicked);
 
   
-lbl_playerScore.innerHTML =  playerScore;
-lbl_computerScore.innerHTML = computerScore;
-lbl_draw.innerHTML = drawCounter;
+showPlayerScore.innerHTML =  playerScore;
+showComputerScore.innerHTML = computerScore;
+showDrawCount.innerHTML = drawCounter;
+
 
 
 
@@ -61,56 +62,63 @@ function scissorsBtnClicked(){
 
 
 
+
+
+
+
+
+
 function play() {
-  let computerSelection = computerPlay(); 
+  let computerSelection = computerRandomPlay(); 
   playRound(playerSelection, computerSelection);
   
  
-  lbl_playerScore.innerHTML = playerScore;
-  lbl_computerScore.innerHTML = computerScore;
-  lbl_draw.innerHTML =  drawCounter;
+  showPlayerScore.innerHTML = playerScore;
+  showComputerScore.innerHTML = computerScore;
+  showDrawCount.innerHTML =  drawCounter;
  
    if (playerScore >= 5) 
   {
       
-    rockBtn.style.display = "none";
-    paperBtn.style.display = "none";
-    scissorsBtn.style.display = "none";
+    playerRockBtn.style.display = "none";
+    playerPaperBtn.style.display = "none";
+    playerScissorsBtn.style.display = "none";
     
-    rockBtnC.style.display = "none";
-    paperBtnC.style.display = "none";
-    scissorsBtnC.style.display = "none";
+    comRockBtn.style.display = "none";
+    comPaperBtn.style.display = "none";
+    comScissorsBtn.style.display = "none";
 
     lbl_pWin.textContent = "You Win!";
     lbl_cLost.innerText =  " 01001001 00100000 01101100 \n 01101111 01110011 01110100";
    
     gameLog.innerText = (`${playerSelection} > ${computerSelection}\n\nYou won the game Congratulations!.`);
-    removeText();
+    removePlayerOptionsText();
  
   }
 
   else if (computerScore >=5 ) {
 
-    rockBtn.style.display = "none";
-    paperBtn.style.display = "none";
-    scissorsBtn.style.display = "none";
+    playerRockBtn.style.display = "none";
+    playerPaperBtn.style.display = "none";
+    playerScissorsBtn.style.display = "none";
 
-    rockBtnC.style.display = "none";
-    paperBtnC.style.display = "none";
-    scissorsBtnC.style.display = "none";
+    comRockBtn.style.display = "none";
+    comPaperBtn.style.display = "none";
+    comScissorsBtn.style.display = "none";
 
     lbl_pLose.textContent = "You Lose!";
     lbl_cWin.innerText = "01001001 00100000\n 01110111 01101001 01101110" ;
 
-    gameLog.innerText = (`${computerSelection} > ${playerSelection}\n\nComputer won the game.`);
-    removeText();
+    gameLog.innerText = (`${computerSelection} > ${playerSelection}\n\nComputer won the game. Better luck next time.`);
+    removePlayerOptionsText();
 
   }
 
 }
 
 
-function removeText() {
+// if either p or com win. remove the "pick an option from below text"
+function removePlayerOptionsText() {
   var x = document.getElementById("selectText");
   if (x.style.display === "none") {
     x.style.display = "block";
@@ -120,47 +128,47 @@ function removeText() {
 }
 
 
-function reset() {
+function resetGame() {
 
   playerScore = 0;
   computerScore = 0;
   roundCounter = 0;
   drawCounter = 0;
 
-  lbl_playerScore.innerHTML =  playerScore;
-  lbl_computerScore.innerHTML =  computerScore;
-  lbl_draw.innerHTML =  drawCounter;
+  showPlayerScore.innerHTML =  playerScore;
+  showComputerScore.innerHTML =  computerScore;
+  showDrawCount.innerHTML =  drawCounter;
  
 }
 
 
 
 
-function computerPlay() {
+function computerRandomPlay() {
   var computerRandomElement =
-  rpsArrContainer[Math.floor(Math.random() * rpsArrContainer.length)];
+ rpsString[Math.floor(Math.random() * rpsString.length)];
 
   if (computerRandomElement == "rock")
  {
-   rockBtnC.style.display = "initial";
-   paperBtnC.style.display = "none";
-   scissorsBtnC.style.display = "none";
+   comRockBtn.style.display = "initial";
+   comPaperBtn.style.display = "none";
+   comScissorsBtn.style.display = "none";
 
   
  }
  
  else if (computerRandomElement== "paper")
  {
-   paperBtnC.style.display = "initial";
-   rockBtnC.style.display = "none";
-   scissorsBtnC.style.display = "none";
+   comPaperBtn.style.display = "initial";
+   comRockBtn.style.display = "none";
+   comScissorsBtn.style.display = "none";
  }
  
  else if (computerRandomElement == "scissors")
  {
-   scissorsBtnC.style.display = "initial";
-   rockBtnC.style.display = "none";
-   paperBtnC.style.display = "none";
+   comScissorsBtn.style.display = "initial";
+   comRockBtn.style.display = "none";
+   comPaperBtn.style.display = "none";
 
    
  }
@@ -178,7 +186,7 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "scissors" && computerSelection === "paper")
   ) {
-    gameLog.innerText = (`You won the round\n\n${playerSelection} > ${computerSelection}`);
+    showGameLog.innerText = (`You won the round\n\n${playerSelection} > ${computerSelection}`);
     playerScore  ++;
   }      
   
@@ -188,7 +196,7 @@ function playRound(playerSelection, computerSelection) {
     (computerSelection === "scissors" && playerSelection === "paper")
   ) {
     
-    gameLog.innerText = (`Computer won the round\n\n${computerSelection} > ${playerSelection}`);
+    showGameLog.innerText = (`Computer won the round\n\n${computerSelection} > ${playerSelection}`);
     computerScore ++;
   }
   
@@ -198,7 +206,7 @@ function playRound(playerSelection, computerSelection) {
     playerSelection === "scissors" ||
     computerSelection === "scissors"
   ) {
-    gameLog.innerText = (`Tie\n\n${playerSelection} = ${computerSelection}`);
+    showGameLog.innerText = (`Tie\n\n${playerSelection} = ${computerSelection}`);
     drawCounter ++;
  
   }
