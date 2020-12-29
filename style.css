@@ -1,54 +1,3 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-:root {
-  --main-radius: 5px;
-  --main-padding: 5px;
-}
-
-label {
-  margin: 6px;
-  font-size: 20px;
-}
-body {
-  color: rgba(19, 65, 87, 0.651);
-
-  font-family: "Della Respira", serif;
-}
-h1 {
-  text-align: center;
-  font-size: 40px;
-  margin-top:25px;
-  margin-bottom:25px;
-}
-
-h2 {
-  margin-top: 10px;
-  font-size: 18px;
-  text-align: center;
-}
-
-h3 {
-  text-align: center;
-  margin-top: 12px;
-}
-
-#rbtImage {
-  width: 128px;
-  height: 128px;
-  margin-top: 10px;
-  align-self: center;
-}
-
-#userImage {
-  width: 128px;
-  height: 128px;
-  align-self: center;
-}
-
 .mainContainer {
   margin-top: 50px;
   display: flex;
@@ -70,6 +19,12 @@ h3 {
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.leftContainer > #userImage {
+  width: 128px;
+  height: 128px;
+  align-self: center;
 }
 
 .middleContainer {
@@ -95,60 +50,58 @@ h3 {
   font-size: 12px;
 }
 
-#pScoreHeadeer {
+.middleContainer > #pScoreHeadeer {
   grid-area: a1;
   text-align: left;
 }
-#tieHeader {
+.middleContainer > #tieHeader {
   grid-area: a2;
   text-align: center;
 }
 
-#comScoreHeader {
+.middleContainer > #comScoreHeader {
   grid-area: a3;
   text-align: right;
 }
 
-#showPlayerScore {
+.middleContainer > #showPlayerScore {
   justify-self: left;
   grid-area: playerScore;
   font-size: 40px;
 }
 
-#showDrawCount {
+.middleContainer > #showDrawCount {
   justify-self: center;
   grid-area: displayDraw;
   font-size: 40px;
 }
 
-#showComputerScore {
+.middleContainer > #showComputerScore {
   justify-self: right;
   grid-area: computerScore;
   font-size: 40px;
 }
 
-
-
-#gameLog {
+.middleContainer > #gameLog {
   justify-self: center;
   grid-area: log;
 }
 
-#restartBtn {
+.middleContainer > #restartBtn {
   grid-area: reButton;
-  width: 25%;
+
   justify-self: center;
   background-color: rgb(72, 108, 145);
   border: none;
   border-radius: 10px;
   color: white;
-  padding: 12px 16px;
-  font-size: 16px;
+  padding: 8px 30px;
+  font-size: 15px;
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
-#restartBtn:hover {
+.middleContainer > #restartBtn:hover {
   background-color: rgba(33, 73, 192, 0.76);
 }
 
@@ -164,6 +117,13 @@ h3 {
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.rightContainer > #rbtImage {
+  width: 128px;
+  height: 128px;
+  margin-top: 10px;
+  align-self: center;
 }
 
 .btn {
@@ -184,4 +144,42 @@ h3 {
 
 .btn:active {
   transform: translateY(4px);
+}
+
+/* General Rules */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --main-radius: 5px;
+  --main-padding: 5px;
+}
+
+label {
+  margin: 6px;
+  font-size: 20px;
+}
+body {
+  color: rgba(19, 65, 87, 0.651);
+
+  font-family: "Della Respira", serif;
+}
+h1 {
+  text-align: center;
+  font-size: 40px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+h2 {
+  margin-top: 10px;
+  font-size: 18px;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  margin-top: 12px;
 }

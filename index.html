@@ -17,9 +17,12 @@
     />
   </head>
   <body>
+    
+    <header>
     <h1>Rock Paper Scissors</h1>
     <h2>( Player vs Computer version )</h2>
     <h3>The one who reaches score "5" wins the game</h3>
+  </header>
 
     <div class="mainContainer">
       <div class="leftContainer">
@@ -45,11 +48,12 @@
         <p id="pScoreHeader">Player Score</p>
         <p id="tieHeader">TIE</p>
         <p id="comScoreHeader">Computer Score</p>
-        <label id="showPlayerScore"></label>
-        <label id="showComputerScore"></label>
-        <label id="showDrawCount"></label>
+        <label id="showPlayerScore">0</label>
+        <label id="showComputerScore">0</label>
+        <label id="showDrawCount">0</label>
 
         <label id="gameLog">Game Log</label>
+
         <button id="restartBtn" onClick="history.go(0)" value="Refresh">
           Restart
         </button>
